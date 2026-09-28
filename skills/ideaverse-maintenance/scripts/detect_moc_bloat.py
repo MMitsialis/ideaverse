@@ -60,8 +60,9 @@ def is_moc(file_path, content):
     if 'Maps' in str(file_path):
         return True
     
-    # Check frontmatter for 'in: [[Maps]]' pattern
-    if re.search(r'in:\s*\n\s*-\s*["\']?\[\[Maps\]\]["\']?', content):
+    # Check frontmatter for membership of Maps.
+    # Ideaverse 2.5 emits 'collections:'. Earlier vaults use 'in:'. Accept either.
+    if re.search(r'(?:collections|in):\s*\n\s*-\s*["\']?\[\[Maps\]\]["\']?', content):
         return True
     
     return False

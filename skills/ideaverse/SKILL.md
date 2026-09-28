@@ -7,22 +7,24 @@ description: Work with Ideaverse-based Obsidian vaults using the ACE framework (
 
 Apply the ACE framework (Atlas/Calendar/Efforts), LYT (Linking Your Thinking) conventions, and the ARC workflow (Add/Relate/Communicate) to organize and connect knowledge.
 
-## Core Framework: ACE + Extras
+## Core Framework: ACE plus a support folder
 
-**ACE** organizes all content by **intention**, not topic. The fourth folder, `+ Extras/`, provides operational infrastructure:
+**ACE** organizes all content by **intention**, not topic. A fourth folder, `x`, provides operational infrastructure. Some earlier documentation called it `+ Extras/`:
 
 | Folder | Purpose | Question It Answers | Orientation |
 |--------|---------|---------------------|--------------|
 | **Atlas/** | Permanent, reusable knowledge | "What do I know?" | Space (relatedness) |
 | **Calendar/** | Temporal records, when things happened | "When did this happen?" | Time (reflection) |
 | **Efforts/** | Active work, goals, and projects | "What am I working on?" | Action (importance) |
-| **+ Extras/** | Templates, attachments, system config | "What supports my vault?" | Infrastructure |
+| **`x`** (or `+ Extras/`) | Templates, attachments, system config | "What supports my vault?" | Infrastructure |
 
 Separate project-specific material (Efforts/) from permanent knowledge (Atlas/). When a concept has reuse value beyond its originating project, extract it to Atlas/ and link back.
 
-### + Extras/ — The Support Layer
+### The Support Layer — `x`
 
-The `+ Extras/` folder holds everything that supports the vault but isn't knowledge, calendar, or project content. The `+` prefix sorts it below ACE folders alphabetically in Obsidian's file explorer, keeping the three core folders visually prominent.
+The support folder holds everything that supports the vault but isn't knowledge, calendar, or project content. Ideaverse names it `x`. Some earlier documentation called it `+ Extras/`. It sorts outside the three core ACE folders in Obsidian's file explorer, keeping those visually prominent.
+
+**Do not confuse `x` with the inbox.** Ideaverse has a second single-character root, `+`, and that one is the inbox. They are different folders with different roles: `+` receives new material, and `x` holds the instruments. A vault on Windows may name the inbox something else, because PowerShell and Windows handle a `+` in a path inconsistently. That is a choice about the inbox, and it says nothing about `x`.
 
 Typical contents:
 
@@ -34,7 +36,7 @@ Typical contents:
 | `Canvases/` | Canvas files (`.canvas`) |
 | `Utilities/` | Utility notes, dataview queries, CSS snippet references |
 
-**Rule**: Nothing in `+ Extras/` is a "note" in the knowledge sense. If you wouldn't link to it from an MOC or reference it as knowledge, it belongs in Extras.
+**Rule**: Nothing in the support folder is a "note" in the knowledge sense. If you wouldn't link to it from an MOC or reference it as knowledge, it belongs there.
 
 ## The ARC Workflow
 

@@ -145,15 +145,17 @@ def check_frontmatter(vault_path, strict=False):
                         'severity': 'warning'
                     })
             
-            # Check: MOCs should have 'in' property (strict mode)
+            # Check: MOCs should declare collection membership (strict mode).
+            # Ideaverse 2.5 templates emit 'collections:'. Earlier vaults use 'in:'.
+            # Accept either, so the check holds across distribution generations.
             if strict:
                 is_moc = 'MOC' in note_name or 'Map' in note_name or 'Maps' in rel_path
                 if is_moc:
-                    in_val = props.get('in', [])
-                    if not in_val or (isinstance(in_val, list) and len(in_val) == 0):
+                    membership = props.get('collections') or props.get('in') or []
+                    if not membership or (isinstance(membership, list) and len(membership) == 0):
                         issues.append({
                             'path': rel_path,
-                            'issue': "MOC missing 'in' property",
+                            'issue': "MOC missing 'collections' (or legacy 'in') property",
                             'severity': 'info'
                         })
         
