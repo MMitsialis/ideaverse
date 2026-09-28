@@ -81,6 +81,8 @@ def find_existing_mocs(vault_path):
     mocs = set()
     
     for md_file in vault.rglob('*.md'):
+        if not md_file.is_file():  # rglob matches names, so a directory called '*.md' lands here too
+            continue
         if not is_vault_content(md_file, vault, ignore_patterns):
             continue
         
@@ -105,6 +107,8 @@ def find_existing_notes(vault_path):
     notes = set()
     
     for md_file in vault.rglob('*.md'):
+        if not md_file.is_file():  # rglob matches names, so a directory called '*.md' lands here too
+            continue
         if not is_vault_content(md_file, vault, ignore_patterns):
             continue
         notes.add(md_file.stem)
@@ -122,6 +126,8 @@ def validate_squeeze_points(vault_path, threshold):
     existing_notes = find_existing_notes(vault_path)
     
     for md_file in vault.rglob('*.md'):
+        if not md_file.is_file():  # rglob matches names, so a directory called '*.md' lands here too
+            continue
         if not is_vault_content(md_file, vault, ignore_patterns):
             continue
         

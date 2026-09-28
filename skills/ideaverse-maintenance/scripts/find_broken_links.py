@@ -41,6 +41,8 @@ def find_broken_links(vault_path):
     existing_notes = set()
     
     for md_file in vault.rglob('*.md'):
+        if not md_file.is_file():  # rglob matches names, so a directory called '*.md' lands here too
+            continue
         if not is_vault_content(md_file, vault, ignore_patterns):
             continue
         existing_notes.add(md_file.stem)
@@ -49,6 +51,8 @@ def find_broken_links(vault_path):
     broken = []  # (source_file, broken_link)
     
     for md_file in vault.rglob('*.md'):
+        if not md_file.is_file():  # rglob matches names, so a directory called '*.md' lands here too
+            continue
         if not is_vault_content(md_file, vault, ignore_patterns):
             continue
         

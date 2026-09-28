@@ -42,6 +42,8 @@ def find_orphans(vault_path):
     incoming_links = {}  # filename -> set of files that link to it
     
     for md_file in vault.rglob('*.md'):
+        if not md_file.is_file():  # rglob matches names, so a directory called '*.md' lands here too
+            continue
         if not is_vault_content(md_file, vault, ignore_patterns):
             continue
         

@@ -14,6 +14,8 @@ Usage:
     
     ignore_patterns = load_gitignore_patterns(vault_root)
     for md_file in vault_root.rglob('*.md'):
+        if not md_file.is_file():  # rglob matches names, so a directory called '*.md' lands here too
+            continue
         if not is_vault_content(md_file, vault_root, ignore_patterns):
             continue
         links = extract_wikilinks(md_file.read_text())
